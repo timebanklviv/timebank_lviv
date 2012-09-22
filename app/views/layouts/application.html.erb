@@ -1,14 +1,50 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>TimeBankLviv</title>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= javascript_include_tag "application" %>
+  <title>TimeBank</title>
+  <%= stylesheet_link_tag 'application' %>
+  <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-
-<%= yield %>
-
+  <div class="main_container">
+    <div id="logo"><%= link_to image_tag("logo.gif"),root_path %>
+      <div id="login">
+        <div class="form_login">
+          <% if !user_signed_in? %>
+            <%= form_tag(user_session_path, :method=>'post') do %>
+                <input type="email" name='user[email]' placeholder="Email"  class="input_field form_login_field" >
+                <input type="password" name='user[password]' placeholder="Password"  class="input_field form_login_field">
+                <%= button_tag(:type=>'submit',:id =>'submit_login') do%>
+                  <span>Login</span>
+                <%end%>
+            <% end %>
+          <% end %>
+        </div>
+        <div class="current_user">
+          <% if user_signed_in? %>
+            <div class="logout">
+              Welcome! <%= current_user.email %> | <%= link_to 'Profile', edit_user_registration_path %> | <%= link_to "Log Out", destroy_user_session_path %>
+            </div>
+          <% else %>
+            <%= link_to "Registration", new_user_registration_path %> | 
+            <%= link_to "Forgot password?", new_user_password_path %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+    
+    <div class="menu">
+      <ul>
+        <% if user_signed_in? %>
+        <% end %>
+      </ul>
+    </div>  
+    <div id="wraper_container"><%= yield %></div>
+    <div id="footer">
+    <div id='confirm_dialog'><p>Are you sure?</p></div>                    
+      <div id="copyright">Copyright © 2008 - 2012 Dune HD GmbH. All Rights Reserved. Version v1.3</div>
+    </div>
+  </div>
 </body>
 </html>
