@@ -8,7 +8,7 @@
 </head>
 <body>
   <div class="main_container">
-    <div id="logo"><%= link_to image_tag("logo.gif"),root_path %>
+    <div id="logo"><%= link_to image_tag("logo.png"),root_path %>
       <div id="login">
         <div class="form_login">
           <% if !user_signed_in? %>
@@ -24,7 +24,7 @@
         <div class="current_user">
           <% if user_signed_in? %>
             <div class="logout">
-              Welcome! <%= current_user.email %> | <%= link_to 'Profile', edit_user_registration_path %> | <%= link_to "Log Out", destroy_user_session_path %>
+              Welcome! <%= current_user.email %> | <%= link_to 'Profile', edit_user_registration_path %> | <%= link_to "Log Out", destroy_user_session_path, :method => :delete %>
             </div>
           <% else %>
             <%= link_to "Registration", new_user_registration_path %> | 
@@ -37,13 +37,17 @@
     <div class="menu">
       <ul>
         <% if user_signed_in? %>
+        <li> user signed</li>
+        <li> menu for signed user</li>
+        <% else %>
+        <li> user  is not signed</li>
+        <li> menu for unsigned user</li>
         <% end %>
       </ul>
     </div>  
     <div id="wraper_container"><%= yield %></div>
     <div id="footer">
-    <div id='confirm_dialog'><p>Are you sure?</p></div>                    
-      <div id="copyright">Copyright © 2008 -2012 TimeBank Lviv. All Rights Reserved. </div>
+      <div id="copyright">Copyright © 2012 TimeBank Lviv. All Rights Reserved. </div>
     </div>
   </div>
 </body>

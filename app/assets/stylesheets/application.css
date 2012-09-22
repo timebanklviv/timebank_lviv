@@ -16,6 +16,9 @@ body{
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 13px;
 }
+table,  td{
+	border: 1px solid #AAA;
+}
 #notice_message{
   height: 20px;
   background: #c5d3e9;
@@ -30,7 +33,7 @@ body{
 #wraper_container{
   padding-bottom:50px;
   height: 100%;
-  background: transparent url('/assets/content-bottom-bg.png') repeat-x left bottom 
+  background: #EEE; 
 }
 
 .main_container{
@@ -43,7 +46,7 @@ a#active_tab {
 }
 
 .menu{
-  background: url('/assets/menu.jpg') no-repeat left top;
+  background: #AEA;
   width:973px;
   height:39px;
  
@@ -82,14 +85,14 @@ a#active_tab {
 
 .input_field{
   border: 1px solid #D7D7D7;
-  background: url('/assets/input-bg.jpg') no-repeat;
+  background: #bbeebb;
   height:18px;
   padding: 0px;
         
 }
 
  #submit_login{
-  background: transparent url('/assets/login.png') no-repeat; 
+  background: #aaffaa; 
   width: 50px;
   height: 19px;
   border: none;
@@ -135,7 +138,7 @@ a#active_tab {
   color: #333;
   text-decoration: none;
   float: left;
-  background: transparent url('/assets/btn-register.png') no-repeat;
+  background: #FFBBBB;
   margin-left: 30px;
   height:28px;
   width: 110px;
